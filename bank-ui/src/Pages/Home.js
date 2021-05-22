@@ -13,37 +13,24 @@ const useStyles = makeStyles((theme) => ({
  
   content: {
     height: "100%",
+    width: "100%",
     display: "flex",
     alignItems: "auto",
-    paddingLeft:theme.spacing(5),
     flexDirection: "column",
-    [theme.breakpoints.down('xs')]: {
-      paddingLeft: theme.spacing(10),
-      
+ 
+    [theme.breakpoints.down('xl')]: {
+      paddingLeft: theme.spacing(15),     
     },
     [theme.breakpoints.down('sm')]: {
-      paddingLeft: theme.spacing(10),
-     
-    },
-    [theme.breakpoints.down('md')]: {
-      paddingLeft: theme.spacing(10),
-     
-    },
-    [theme.breakpoints.down('lg')]: {
-      paddingLeft: theme.spacing(10),
-      
-    },
-    [theme.breakpoints.down('xl')]: {
-      paddingLeft: theme.spacing(10),
-      
+      paddingLeft: theme.spacing(20),     
     },
     
   },
   contentBody: {
-    flexGrow: 2,
-    display: "flex",
+    /* flexGrow: 2, */
+    /* display: "flex", */
 
-    width:"70%",
+    width:"80%",
     flexDirection: "column",
    /*  alignItems: "flex-start", */
    
@@ -85,7 +72,9 @@ function Home() {
 
   return (
 
+    
     <div >
+      
        <Grid
           className={classes.content}
           alignItems="center"
@@ -105,7 +94,8 @@ function Home() {
                <div className={classes.root2}>       
 
                     <br/>
-                    <Grid 
+                    <Tableinfo />
+                    {/* <Grid 
                     className={classes.grid}
                     container
                     spacing={1}
@@ -119,12 +109,12 @@ function Home() {
                        
                     >  
 
-                        <Tableinfo />
+                        
                      
 
                     </Grid>
               
-                    </Grid>
+                    </Grid> */}
                     </div>           
             </div>
       </Grid>   

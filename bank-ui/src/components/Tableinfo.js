@@ -13,8 +13,13 @@ import ImgThree from '../static/images/imageThree.jpg';
 import ImgFour from '../static/images/imageFour.jpg';
 import ImgFive from '../static/images/imageFive.jpg';
 import { Redirect } from "react-router";
-import Botton from './Botton';
 import Collaborators from "./Collaborators";
+import EditRoundedIcon from '@material-ui/icons/EditRounded';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
+
+
+
 
 import {
     Grid,
@@ -33,7 +38,8 @@ import {
       alignItems: 'center',
       alignText: 'center',
       justifyContent: 'center',
-    }
+    },
+  
   
   }));
 
@@ -122,7 +128,7 @@ const rows = [
 export default function Tableinfo() {
   const classes = useStyles();
   return (
-    <TableContainer component={Paper}>
+    <TableContainer  component={Paper}>
       <Table >
         <TableHead>
           <TableRow>
@@ -149,31 +155,38 @@ export default function Tableinfo() {
                 </Grid>
                   
               </StyledTableCell>
-              <StyledTableCell align="left">{row.Description}</StyledTableCell>
+              <StyledTableCell align="left">{}</StyledTableCell>
               <StyledTableCell align="left">
              
-              
+              <Typography
+                    className={classes.title}
+                  
+                    color="primary"
+                  >
+                    user1
+                  </Typography>
             
               </StyledTableCell>
-              {/* <StyledTableCell align="left">
-              <Grid
-                direction="row"
-                >
-                    {row.ResearchStaff.map((row2) => (
-                    <div> 
-                    <Collaborators 
-                       name={row2.name} page={row2.page}
-                    />
-                     <br />
-                    </div>
-
-                 ))}
-                </Grid> 
-              
-              </StyledTableCell> */}
+            
               <StyledTableCell align="left">
           
-            <Botton page={row.page}/>
+                
+              </StyledTableCell>
+              <StyledTableCell align="left">
+          
+              <Grid container spacing={3}>
+                <Grid item xs={6}>
+                  <IconButton color="primary" aria-label="upload picture" component="span">
+                    <EditRoundedIcon />
+                  </IconButton>
+                </Grid>
+                <Grid item xs={6}>
+                  <IconButton color="primary" aria-label="upload picture" component="span">
+                    <DeleteRoundedIcon />
+                  </IconButton>
+                </Grid>
+              </Grid>
+
               </StyledTableCell>
             </StyledTableRow>
           ))}

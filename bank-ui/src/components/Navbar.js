@@ -6,7 +6,7 @@ import { SidebarData } from './SidebarData';
 import './Navbar.css';
 import { IconContext } from 'react-icons';
 import Avatar from '@material-ui/core/Avatar';
-import ImgOne from '../static/images/logo.jpg';
+import ImgOne from '../static/images/banklogo.png';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import {
@@ -55,13 +55,11 @@ function Navbar() {
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
           <ul className='nav-menu-items' /* onClick={showSidebar} */>
             <li className='navbar-toggle'>
-              {/* <Link to='#' className='menu-bars'>
-                <AiIcons.AiOutlineClose />
-              </Link> */}
+            
               <Grid container spacing={3}>
                   <Grid item xs={12}>
                   </Grid>
-                  <Grid item xs={3}>
+                  <Grid item >
                   <Avatar alt="Remy Sharp" src={ImgOne}/>
                   </Grid>
                   <Grid item xs={6} >
