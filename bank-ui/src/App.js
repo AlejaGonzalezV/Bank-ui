@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './Pages/Home';
 import { makeStyles } from '@material-ui/core/styles';
-import Contacts from './Pages/Contacts';
+import Contacts from './Pages/Add-user';
 
 const useStyles = makeStyles((theme) => ({
   Centerbar: {
