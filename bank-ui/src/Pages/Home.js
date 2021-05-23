@@ -1,19 +1,16 @@
 import React from 'react';
 import Tableinfo from '../components/Tableinfo'
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import '../resources/KoHo-bold.css';
 import {
   Grid,
   Typography,
-  Button,
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
  
   content: {
     height: "100%",
-   /*  width: "100%", */
     display: "flex",
     alignItems: "auto",
     flexDirection: "column",
@@ -27,12 +24,8 @@ const useStyles = makeStyles((theme) => ({
     
   },
   contentBody: {
-    /* flexGrow: 2, */
-    /* display: "flex", */
-
     width:"80%",
     flexDirection: "column",
-   /*  alignItems: "flex-start", */
    
   },
   title: {

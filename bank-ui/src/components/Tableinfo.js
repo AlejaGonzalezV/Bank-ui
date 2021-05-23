@@ -7,13 +7,6 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import ImgOne from '../static/images/dataScience.jpg';
-import ImgTwo from '../static/images/image2.jpg';
-import ImgThree from '../static/images/imageThree.jpg';
-import ImgFour from '../static/images/imageFour.jpg';
-import ImgFive from '../static/images/imageFive.jpg';
-import { Redirect } from "react-router";
-import Collaborators from "./Collaborators";
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
@@ -23,12 +16,7 @@ import { UserController } from '../controllers';
 import '../resources/KoHo.css';
 import {
     Grid,
-    Button,
-    TextField,
-    Link,
     Typography,
-    Checkbox,
-    FormControlLabel,
   } from "@material-ui/core";
 
   const useStyles = makeStyles((theme) => ({
@@ -79,16 +67,13 @@ export default function Tableinfo({ users }) {
     event.preventDefault();
 
     await UserController.delete(property)
-
-    history.push("/") 
+    history.go(0)
   }
 
   const handleEdit = (property) => async (event) =>{
     event.preventDefault();
 
     history.push("/edit", {name: property.name, document: property.document, username: property.username, active: property.active})  
-    console.log(property)
-
   }
 
   return (

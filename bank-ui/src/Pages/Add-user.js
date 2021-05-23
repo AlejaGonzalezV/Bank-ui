@@ -9,7 +9,6 @@ import PersonAddRoundedIcon from '@material-ui/icons/PersonAddRounded';
 import '../resources/KoHo-bold.css';
 import validate from 'validate.js';
 import { useHistory } from "react-router-dom";
-import useSWR from 'swr';
 import { UserController } from '../controllers';
 import {
   Grid,

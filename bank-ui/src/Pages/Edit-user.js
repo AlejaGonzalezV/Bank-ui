@@ -5,7 +5,6 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import PersonAddRoundedIcon from '@material-ui/icons/PersonAddRounded';
 import '../resources/KoHo-bold.css';
 import validate from 'validate.js';
 import PropTypes from 'prop-types';

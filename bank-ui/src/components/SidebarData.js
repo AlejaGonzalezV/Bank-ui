@@ -1,13 +1,6 @@
 import React from 'react';
-import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
-import * as IoIcons from 'react-icons/io';
-import * as GrIcons from 'react-icons/gr';
 import PeopleAltRoundedIcon from '@material-ui/icons/PeopleAltRounded';
 import GroupAddRoundedIcon from '@material-ui/icons/GroupAddRounded';
-import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
-
-
 
 export const SidebarData = [
   {

@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import * as FaIcons from 'react-icons/fa';
-import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 import './Navbar.css';
@@ -8,11 +6,9 @@ import { IconContext } from 'react-icons';
 import Avatar from '@material-ui/core/Avatar';
 import ImgOne from '../static/images/banklogo.png';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import {
   Grid,
   Typography,
-  Button,
 } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
