@@ -2,7 +2,7 @@ import React from 'react';
 import Tableinfo from '../components/Tableinfo'
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-import '../resources/font.css';
+import '../resources/KoHo-bold.css';
 import {
   Grid,
   Typography,
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
  
   content: {
     height: "100%",
-    width: "100%",
+   /*  width: "100%", */
     display: "flex",
     alignItems: "auto",
     flexDirection: "column",
@@ -69,10 +69,9 @@ const useStyles = makeStyles((theme) => ({
 function Home() {
 
   const classes = useStyles();
-
+ 
   return (
 
-    
     <div >
       
        <Grid
@@ -95,26 +94,6 @@ function Home() {
 
                     <br/>
                     <Tableinfo />
-                    {/* <Grid 
-                    className={classes.grid}
-                    container
-                    spacing={1}
-
-                    >
-                    <Grid
-                      
-                        item
-                        xs
-                        alignItems="center"    
-                       
-                    >  
-
-                        
-                     
-
-                    </Grid>
-              
-                    </Grid> */}
                     </div>           
             </div>
       </Grid>   

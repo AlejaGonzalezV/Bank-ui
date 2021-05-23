@@ -18,14 +18,8 @@ export const SidebarData = [
   },
   {
     title: 'Agregar',
-    path: '/agregar',
+    path: '/register',
     icon: <GroupAddRoundedIcon/>,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Buscar',
-    path: '/buscar',
-    icon: <SearchRoundedIcon/>,
     cName: 'nav-text'
   },
   

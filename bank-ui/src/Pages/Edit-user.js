@@ -8,9 +8,10 @@ import Select from '@material-ui/core/Select';
 import PersonAddRoundedIcon from '@material-ui/icons/PersonAddRounded';
 import '../resources/KoHo-bold.css';
 import validate from 'validate.js';
+import PropTypes from 'prop-types';
 import { useHistory } from "react-router-dom";
-import useSWR from 'swr';
 import { UserController } from '../controllers';
+import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
 import {
   Grid,
   Typography,
@@ -92,45 +93,53 @@ const schema = {
   },
 };
 
-function Add() {
+const  Edit = (props) => {
 
-  let history = useHistory();
+    let history = useHistory();
+    const location = props.location;
 
-  const handleSubmit = async(event) => {
+    const [formState, setFormState] = useState({
+        isValid: false,
+        values: {
+            name: location.state.name,
+            identification: location.state.document ,
+            username: location.state.username,
+            stateA: location.state.active
+        },
+        touched: {},
+        errors: {},
+    });
+    
+    const hasError = (field) =>
+        formState.touched[field] && formState.errors[field] ? true : false;
+    
+    
+    useEffect(() => {
+      const errors = validate(formState.values, schema);
+    
+      setFormState((formState) => ({
+      ...formState,
+      isValid: errors ? false : true,
+      errors: errors || {},
+      }));
+         
+    }, []);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
+   
     const data = {
       name: formState.values.name,
       document: formState.values.identification,
       username: formState.values.username,
       active: formState.values.stateA,
     }
-   
-    await UserController.register(data)
+
+    await UserController.edit(data)
 
     history.push("/")
   };
 
-  const [formState, setFormState] = useState({
-    isValid: false,
-    values: {},
-    touched: {},
-    errors: {},
-});
-
-const hasError = (field) =>
-    formState.touched[field] && formState.errors[field] ? true : false;
-
-
-useEffect(() => {
-  const errors = validate(formState.values, schema);
-
-  setFormState((formState) => ({
-  ...formState,
-  isValid: errors ? false : true,
-  errors: errors || {},
-  }));
-     
-}, [formState.values]);
 
   const handleChange = (event) => {
     event.persist();
@@ -170,7 +179,7 @@ useEffect(() => {
                   color="primary"
                   align="center"
                 >
-                  Agrega un nuevo usuario
+                  Editar usuario
                 </Typography> 
                 <br/>   
                 <br/>   
@@ -212,6 +221,7 @@ useEffect(() => {
                     >
                      <TextField                       
                       className={classes.textField}
+                      disabled 
                       error={hasError("identification")}
                       helperText={
                         hasError("identification")
@@ -297,9 +307,9 @@ useEffect(() => {
                       color="primary"
                       disabled={!formState.isValid}
                       className={classes.button}
-                      endIcon={<PersonAddRoundedIcon />}
+                      endIcon={<PersonRoundedIcon />}
                       >
-                      Agregar usuario    
+                      Guardar usuario    
                       </Button>
                   </Grid>  
 
@@ -312,4 +322,13 @@ useEffect(() => {
   </div>   
   );
 }
-export default Add;
+
+Edit.propTypes = {
+    name: PropTypes.string,
+    username: PropTypes.string,
+    active: PropTypes.bool,
+    document: PropTypes.number,
+};
+
+  
+export default Edit;
