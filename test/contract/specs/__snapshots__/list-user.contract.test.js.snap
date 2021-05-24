@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given An User service When a request to list all the users is made Then it should return the right data 1`] = `
+Array [
+  Object {
+    "active": true,
+    "document": 1007554029,
+    "id": 2,
+    "name": "Jota Mario",
+    "username": "jota123",
+  },
+  Object {
+    "active": true,
+    "document": 44444,
+    "id": 61,
+    "name": "asas",
+    "username": "asas",
+  },
+]
+`;
