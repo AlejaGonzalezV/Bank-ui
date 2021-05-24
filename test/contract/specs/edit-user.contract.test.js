@@ -5,6 +5,7 @@ import { Matchers } from "@pact-foundation/pact";
 const user = {
     name: "John Doe",
     document: 1111,
+    id: 80,
     username: "Jd12",
     active: true
 }
