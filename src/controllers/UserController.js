@@ -1,17 +1,17 @@
 import axios from 'axios';
-
+axios.defaults.baseURL = "http://localhost:8080";
 export const UserController = {
     list() {
         return axios({
             method: 'GET',
-            baseURL: process.env.REACT_APP_API,
+            baseURL: process.env.API,
             url: '/users'
         });
     },
     register(user) {
         return axios({
             url: `users`,
-            baseURL: process.env.REACT_APP_API,
+            baseURL: process.env.API,
             data: user,
             method: 'POST',
             headers: {
@@ -22,14 +22,14 @@ export const UserController = {
     delete(id) {
         return axios({
             method: 'DELETE',
-            baseURL: process.env.REACT_APP_API,
+            baseURL: process.env.API,
             url: `users/${id}`,
         });
     },
     edit(user) {
         return axios({
             method: 'PUT',
-            baseURL: process.env.REACT_APP_API,
+            baseURL: process.env.API,
             url: `users/${user.document}`,
             data: user,
             headers: {

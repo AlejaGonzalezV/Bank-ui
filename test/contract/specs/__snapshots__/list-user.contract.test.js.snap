@@ -4,17 +4,10 @@ exports[`Given An User service When a request to list all the users is made Then
 Array [
   Object {
     "active": true,
-    "document": 1007554029,
-    "id": 2,
-    "name": "Jota Mario",
-    "username": "jota123",
-  },
-  Object {
-    "active": true,
-    "document": 44444,
-    "id": 61,
-    "name": "asas",
-    "username": "asas",
+    "document": 1111,
+    "id": 11,
+    "name": "John Doe",
+    "username": "Jd12",
   },
 ]
 `;
