@@ -4,14 +4,14 @@ export const UserController = {
     list() {
         return axios({
             method: 'GET',
-            baseURL: process.env.API,
+            baseURL: process.env.REACT_APP_API,
             url: '/users'
         });
     },
     register(user) {
         return axios({
             url: `users`,
-            baseURL: process.env.API,
+            baseURL: process.env.REACT_APP_API,
             data: user,
             method: 'POST',
             headers: {
@@ -22,14 +22,14 @@ export const UserController = {
     delete(id) {
         return axios({
             method: 'DELETE',
-            baseURL: process.env.API,
+            baseURL: process.env.REACT_APP_API,
             url: `users/${id}`,
         });
     },
     edit(user) {
         return axios({
             method: 'PUT',
-            baseURL: process.env.API,
+            baseURL: process.env.REACT_APP_API,
             url: `users/${user.document}`,
             data: user,
             headers: {

@@ -44,5 +44,17 @@
     "faker": "^5.4.0",
     "identity-obj-proxy": "^3.0.0",
     "jest-dom": "^4.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
