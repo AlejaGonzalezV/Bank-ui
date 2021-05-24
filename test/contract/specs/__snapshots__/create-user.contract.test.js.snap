@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given An User service When the create request for an user is made Then it should return the right data 1`] = `
+Object {
+  "active": true,
+  "document": 1111,
+  "id": 11,
+  "name": "John Doe",
+  "username": "Jd12",
+}
+`;
