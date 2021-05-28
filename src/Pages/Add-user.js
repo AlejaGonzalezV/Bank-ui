@@ -102,6 +102,7 @@ function Add() {
 
   let history = useHistory();
   const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(false);
 
   const handleSubmit = async(event) => {
     event.preventDefault();
@@ -114,6 +115,7 @@ function Add() {
    
     await UserController.register(data).then((res) => {
       if (res.status >= 200 && res.status < 300) {
+        setOpen2(true);
         history.push("/")
       }
     })
@@ -169,6 +171,14 @@ useEffect(() => {
     }
 
     setOpen(false);
+  };
+
+  const handleClose2 = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen2(false);
   };
 
   const classes = useStyles();
@@ -334,6 +344,11 @@ useEffect(() => {
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="error">
           Ocurrió un error creando el usuario. Revisa los datos
+        </Alert>
+      </Snackbar> 
+      <Snackbar open={open2} autoHideDuration={6000} onClose={handleClose2}>
+        <Alert onClose={handleClose2} severity="success">
+          Usuario registrado con éxito
         </Alert>
       </Snackbar> 
   </div>   
