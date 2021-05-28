@@ -11,6 +11,8 @@ import PropTypes from 'prop-types';
 import { useHistory } from "react-router-dom";
 import { UserController } from '../controllers';
 import PersonRoundedIcon from '@material-ui/icons/PersonRounded';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 import {
   Grid,
   Typography,
@@ -92,10 +94,15 @@ const schema = {
   },
 };
 
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
 const  Edit = (props) => {
 
     let history = useHistory();
     const location = props.location;
+    const [open, setOpen] = useState(false);
 
     const [formState, setFormState] = useState({
         isValid: false,
@@ -122,7 +129,7 @@ const  Edit = (props) => {
       errors: errors || {},
       }));
          
-    }, []);
+    }, [formState.values]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -134,9 +141,15 @@ const  Edit = (props) => {
       active: formState.values.stateA,
     }
 
-    await UserController.edit(data)
+    await UserController.edit(data).then((res) => {
+      if (res.status >= 200 && res.status < 300) {
+        history.push("/")
+      }
+    })
+    .catch((error) => {
+      setOpen(true);
+    });
 
-    history.push("/")
   };
 
 
@@ -155,6 +168,14 @@ const  Edit = (props) => {
       },
     }));
 
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
   };
 
   const classes = useStyles();
@@ -318,6 +339,11 @@ const  Edit = (props) => {
           </div>
         </Grid>
       </Grid>   
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error">
+          Ocurrió un error editando al usuario. Revisa los datos
+        </Alert>
+      </Snackbar> 
   </div>   
   );
 }

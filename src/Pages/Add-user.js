@@ -12,7 +12,6 @@ import { useHistory } from "react-router-dom";
 import { UserController } from '../controllers';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
-import useSWR from 'swr';
 import {
   Grid,
   Typography,
