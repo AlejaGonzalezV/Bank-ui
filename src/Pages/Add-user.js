@@ -332,8 +332,8 @@ useEffect(() => {
         </Grid>
       </Grid>  
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="success">
-          Ocurrió un error creando el usuario. Por favor revise los datos
+        <Alert onClose={handleClose} severity="error">
+          Ocurrió un error creando el usuario. Revisa los datos
         </Alert>
       </Snackbar> 
   </div>   
