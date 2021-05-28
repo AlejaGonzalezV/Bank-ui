@@ -112,15 +112,15 @@ function Add() {
       active: formState.values.stateA,
     }
    
-    const{ error } = await UserController.register(data)
-    //const{ error } = useSWR('/users', UserController.register(data), )
-    console.log(error)
-    if(error === undefined){
-      history.push("/")
-      
-    }else{
+    await UserController.register(data).then((res) => {
+      if (res.status >= 200 && res.status < 300) {
+        history.push("/")
+      }
+    })
+    .catch((error) => {
       setOpen(true);
-    }
+    });
+    
     
   };
 
