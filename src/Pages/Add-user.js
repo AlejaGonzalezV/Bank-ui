@@ -10,6 +10,8 @@ import '../resources/KoHo-bold.css';
 import validate from 'validate.js';
 import { useHistory } from "react-router-dom";
 import { UserController } from '../controllers';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 import {
   Grid,
   Typography,
@@ -91,9 +93,14 @@ const schema = {
   },
 };
 
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
 function Add() {
 
   let history = useHistory();
+  const [open, setOpen] = useState(false);
 
   const handleSubmit = async(event) => {
     event.preventDefault();
@@ -104,9 +111,15 @@ function Add() {
       active: formState.values.stateA,
     }
    
-    await UserController.register(data)
-
-    history.push("/")
+    //await UserController.register(data)
+    const{ error } = await useSWR('/users', UserController.register(data), )
+    
+    if(error.status !== 201){
+      setOpen(true);
+    }else{
+      history.push("/")
+    }
+    
   };
 
   const [formState, setFormState] = useState({
@@ -146,6 +159,14 @@ useEffect(() => {
       },
     }));
 
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
   };
 
   const classes = useStyles();
@@ -307,7 +328,12 @@ useEffect(() => {
             </div>     
           </div>
         </Grid>
-      </Grid>   
+      </Grid>  
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success">
+          Ocurrió un error creando el usuario. Por favor revise los datos
+        </Alert>
+      </Snackbar> 
   </div>   
   );
 }
