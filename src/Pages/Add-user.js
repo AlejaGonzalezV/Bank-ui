@@ -115,10 +115,11 @@ function Add() {
     const{ error } = await UserController.register(data)
     //const{ error } = useSWR('/users', UserController.register(data), )
     console.log(error)
-    if(error.status !== 201){
-      setOpen(true);
-    }else{
+    if(error === undefined){
       history.push("/")
+      
+    }else{
+      setOpen(true);
     }
     
   };
