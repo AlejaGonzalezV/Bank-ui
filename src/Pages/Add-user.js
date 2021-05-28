@@ -12,6 +12,7 @@ import { useHistory } from "react-router-dom";
 import { UserController } from '../controllers';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
+import useSWR from 'swr';
 import {
   Grid,
   Typography,
@@ -111,9 +112,9 @@ function Add() {
       active: formState.values.stateA,
     }
    
-    //await UserController.register(data)
-    const{ error } = await useSWR('/users', UserController.register(data), )
-    
+    const{ error } = await UserController.register(data)
+    //const{ error } = useSWR('/users', UserController.register(data), )
+    console.log(error)
     if(error.status !== 201){
       setOpen(true);
     }else{

@@ -5,11 +5,13 @@
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.58",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "env-cmd": "^10.1.0",
     "express": "^4.17.1",
     "express-favicon": "^2.0.1",
+    "next": "10.0.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
@@ -18,8 +20,7 @@
     "styled-components": "^5.2.3",
     "swr": "^0.5.6",
     "validate.js": "^0.13.1",
-    "web-vitals": "^1.0.1",
-    "next": "10.0.7"
+    "web-vitals": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
