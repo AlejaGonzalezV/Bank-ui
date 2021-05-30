@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Navbar() {
-  const [sidebar, setSidebar] = useState(true);
+  const [sidebar] = useState(true);
   const classes = useStyles();
   /* const showSidebar = () => setSidebar(!sidebar); */
   
