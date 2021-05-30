@@ -60,7 +60,7 @@ export default function Tableinfo({ users }) {
  
   let history = useHistory();
   const classes = useStyles();
-  const { data, error } = useSWR('/users', UserController.list)
+  const { data } = useSWR('/users', UserController.list)
   users = data?.data;
 
   const handleDelete = (property) => async (event) =>{
