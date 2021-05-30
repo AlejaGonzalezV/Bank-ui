@@ -10,15 +10,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v2
-    - uses: borales/actions-yarn@v2.0.0
-    - run: yarn install --frozen-lockfile
-    - run: yarn run build 
+    - name: Use Node.js 12
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+    - run: npm ci
+    - run: npm run build --if-present
     - name: run component tests
-      run: yarn run test:component
+      run: npm run test:component
     - name: run contract tests
-      run: yarn run test:contract
+      run: npm run test:contract
       env:
         API: ${{secrets.REACT_APP_API}}
     - name: publish contracts
@@ -26,4 +30,4 @@ jobs:
         PACT_BROKER_BASE_URL: ${{secrets.PACT_BROKER_BASE_URL}}
         PACT_BROKER_TOKEN: ${{secrets.PACT_BROKER_TOKEN}}
         PACT_CONSUMER_VERSION: ${{secrets.PACT_CONSUMER_VERSION}}
-      run: yarn run test:contract:publish
+      run: npm run test:contract:publish 
