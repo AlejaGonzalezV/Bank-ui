@@ -86,11 +86,12 @@ export default function Tableinfo({ users }) {
             <StyledTableCell className={classes.title} align="left">Cédula</StyledTableCell>
             <StyledTableCell className={classes.title} align="left">Usuario</StyledTableCell>
             <StyledTableCell className={classes.title} align="left">Estado</StyledTableCell>
-            <StyledTableCell className={classes.title} align="left"></StyledTableCell>
+            <StyledTableCell className={classes.title} align="left">""</StyledTableCell>
           </TableRow>
         </TableHead>
+        <div data-testid="prueba">
         <TableBody>
-
+        <div data-testid="tabla">
         {users===undefined ? (
           ""
         ):(
@@ -140,26 +141,27 @@ export default function Tableinfo({ users }) {
 
               </StyledTableCell>
               <StyledTableCell align="left">
-          
               <Grid container spacing={3}>
                 <Grid item xs={6}>
-                  <IconButton name="editbutton" color="primary" aria-label="picture" data-testid="edit-button" component="span"  onClick={handleEdit(row)}>
-                    <EditRoundedIcon />
+                  <IconButton name="editbutton" color="primary" aria-label="picture" data-testid={row.id} component="span"  onClick={handleEdit(row)}>
+                    <EditRoundedIcon />""
                   </IconButton>
                 </Grid>
                 <Grid item xs={6}>
                   <IconButton name="deletebutton" color="primary" aria-label="upload picture" data-testid="deleteButton" component="span" onClick={handleDelete(row.document)}>
-                    <DeleteRoundedIcon />
+                    <DeleteRoundedIcon />""
                   </IconButton>
                 </Grid>
               </Grid>
-
               </StyledTableCell>
             </StyledTableRow>
+           
           ))
         )}
+        </div>
 
         </TableBody>
+        </div>
       </Table>
     </TableContainer>
     </div>

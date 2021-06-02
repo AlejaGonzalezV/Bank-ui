@@ -35,11 +35,15 @@ describe("Success cases, Add Dialog Form", () => {
           })).toBeInTheDocument();
         
       });
-    test('',()=>{
+    /*test('',()=>{
         render(<TableInfo />);
         expect(screen.getByTestId('pruebaTabla')).toBeInTheDocument();
+        expect(screen.getByTestId('prueba')).toBeInTheDocument();
+        expect(screen.getByTestId('tabla')).toBeInTheDocument();
+        const dialogTitle = screen.getByTestId("1");
+        expect(dialogTitle).toBeInTheDocument();
     });
-    
+    */
     /*test('The edit section must have all the forms filled ',()=>{
         
         render(<Home />);
