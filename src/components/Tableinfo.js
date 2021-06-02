@@ -77,6 +77,7 @@ export default function Tableinfo({ users }) {
   }
 
   return (
+    <div data-testid="pruebaTabla">
     <TableContainer  component={Paper}>
       <Table >
         <TableHead>
@@ -142,12 +143,12 @@ export default function Tableinfo({ users }) {
           
               <Grid container spacing={3}>
                 <Grid item xs={6}>
-                  <IconButton color="primary" aria-label="upload picture" component="span" onClick={handleEdit(row)}>
+                  <IconButton name="editbutton" color="primary" aria-label="picture" data-testid="edit-button" component="span"  onClick={handleEdit(row)}>
                     <EditRoundedIcon />
                   </IconButton>
                 </Grid>
                 <Grid item xs={6}>
-                  <IconButton color="primary" aria-label="upload picture" component="span" onClick={handleDelete(row.document)}>
+                  <IconButton name="deletebutton" color="primary" aria-label="upload picture" data-testid="deleteButton" component="span" onClick={handleDelete(row.document)}>
                     <DeleteRoundedIcon />
                   </IconButton>
                 </Grid>
@@ -161,5 +162,6 @@ export default function Tableinfo({ users }) {
         </TableBody>
       </Table>
     </TableContainer>
+    </div>
   );
 }
